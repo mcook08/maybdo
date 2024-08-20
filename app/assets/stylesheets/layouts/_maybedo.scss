@@ -1,0 +1,104 @@
+/* Whiteboard Background */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Comic Sans MS', sans-serif;
+    padding: 20px;
+}
+
+/* Whiteboard Container */
+.whiteboard {
+    background-color: #ffffff;
+    border: 6px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sticky Notes */
+.whiteboard .maybedo-item {
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    width: fit-content;
+    font-size: 1.2em;
+    font-family: 'Patrick Hand', sans-serif;
+    position: relative;
+    display: inline-block;
+}
+
+/* Handwritten Font for Titles */
+.whiteboard h1 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    text-decoration: underline;
+}
+
+.whiteboard .note-title {
+    font-weight: bold;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+/* Dotted Grid Background */
+.whiteboard::before {
+    content: '';
+    background-image: radial-gradient(#ccc 1px, transparent 1px);
+    background-size: 20px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+/* Add a subtle transition effect */
+.whiteboard .maybedo-item:hover {
+    transform: rotate(-2deg);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons styled as sticky notes */
+.whiteboard .btn {
+    background-color: #fffd82;
+    border: 1px solid #e0d04a;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.whiteboard .btn:hover {
+    background-color: #f9f88e;
+}
+
+@include media(mobile) {
+
+    /* Whiteboard takes almost full width on mobile */
+    .whiteboard {
+        width: 95%;
+        height: 80vh;
+        padding: 15px;
+    }
+
+    /* Adjust font sizes for better readability on mobile */
+    .whiteboard h1 {
+        font-size: 2.5em;
+    }
+
+    .whiteboard .maybedo-item {
+        font-size: 1.1em;
+    }
+}

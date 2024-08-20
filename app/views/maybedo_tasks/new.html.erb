@@ -1,0 +1,40 @@
+<div class="form-container">
+  <h1>New MaybDo</h1>
+
+  <%= form_with model: @maybedo, local: true do |form| %>
+    <%= form.hidden_field :color, value: params[:color] %>
+
+    <div class="form-group">
+      <%= form.label :title, "MaybDo Title" %>
+      <%= form.text_field :title, class: "form-control", style: "color: #{params[:color]}" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description, "MaybDo Description" %>
+      <%= form.text_area :description, class: "form-control", style: "color: #{params[:color]}" %>
+    </div>
+
+    <div class="form-group">
+      <p>Duration:</p>
+      <div class="radio-group">
+        <%= form.radio_button :expires_in, '1_day', class: "form-radio" %>
+        <%= form.label :expires_in_1_day, '1 day' %><br>
+
+        <%= form.radio_button :expires_in, '7_days', class: "form-radio" %>
+        <%= form.label :expires_in_7_days, '7 days' %><br>
+
+        <%= form.radio_button :expires_in, '30_days', class: "form-radio" %>
+        <%= form.label :expires_in_30_days, '30 days' %><br>
+
+        <%= form.radio_button :expires_in, 'surprise_me', class: "form-radio" %>
+        <%= form.label :expires_in_surprise_me, 'Surprise Me' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit 'Create MaybDo', class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Back to Whiteboard', maybedo_tasks_path, class: "btn btn-secondary" %>
+</div>

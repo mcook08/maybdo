@@ -1,0 +1,36 @@
+<div class="whiteboard">
+  <h1>MaybDos</h1>
+
+  <div class="maybedo-list">
+    <% @maybedos.each do |maybedo| %>
+      <div class="maybedo-item" style="color: <%= maybedo.color %>;">
+        <div class="note-title"><%= maybedo.title %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="tray">
+  <div class="marker-container">
+    <%= link_to new_maybedo_task_path(color: 'red'), class: "marker red-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap red-cap"></div>
+    <% end %>
+    <%= link_to new_maybedo_task_path(color: 'green'), class: "marker green-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap green-cap"></div>
+    <% end %>
+    <%= link_to new_maybedo_task_path(color: 'purple'), class: "marker purple-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap purple-cap"></div>
+    <% end %>
+    <%= link_to new_maybedo_task_path(color: 'orange'), class: "marker orange-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap orange-cap"></div>
+    <% end %>
+    <%= link_to new_maybedo_task_path(color: 'black'), class: "marker black-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap black-cap"></div>
+    <% end %>
+  </div>
+</div>
