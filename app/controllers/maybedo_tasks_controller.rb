@@ -4,6 +4,7 @@ class MaybedoTasksController < ApplicationController
   def index
     board = params[:board] || 'daily' # Default to 'daily' if no board is selected
     @maybedos = current_user.maybedo_tasks.active.where(board: board)
+    @tasks_by_board = MaybedoTask.group(:board).count
   end
 
   def new
