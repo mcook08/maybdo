@@ -1,3 +1,10 @@
+<div class="tabs">
+  <%= link_to "Daily", maybedo_tasks_path(board: 'daily'), class: "tab #{'active' if params[:board] == 'daily' || params[:board].nil?}" %>
+  <%= link_to "Weekly", maybedo_tasks_path(board: 'weekly'), class: "tab #{'active' if params[:board] == 'weekly'}" %>
+  <%= link_to "Monthly", maybedo_tasks_path(board: 'monthly'), class: "tab #{'active' if params[:board] == 'monthly'}" %>
+  <%= link_to "🎉", maybedo_tasks_path(board: 'surprise'), class: "tab #{'active' if params[:board] == 'surprise'}" %>
+</div>
+
 <div class="whiteboard">
   <h1>MaybDos</h1>
 
@@ -12,23 +19,23 @@
 
 <div class="tray">
   <div class="marker-container">
-    <%= link_to new_maybedo_task_path(color: 'red'), class: "marker red-marker" do %>
+    <%= link_to new_maybedo_task_path(color: 'red', board: params[:board]), class: "marker red-marker" do %>
       <div class="marker-body"></div>
       <div class="marker-cap red-cap"></div>
     <% end %>
-    <%= link_to new_maybedo_task_path(color: 'green'), class: "marker green-marker" do %>
+    <%= link_to new_maybedo_task_path(color: 'green', board: params[:board]), class: "marker green-marker" do %>
       <div class="marker-body"></div>
       <div class="marker-cap green-cap"></div>
     <% end %>
-    <%= link_to new_maybedo_task_path(color: 'purple'), class: "marker purple-marker" do %>
+    <%= link_to new_maybedo_task_path(color: 'purple', board: params[:board]), class: "marker purple-marker" do %>
       <div class="marker-body"></div>
       <div class="marker-cap purple-cap"></div>
     <% end %>
-    <%= link_to new_maybedo_task_path(color: 'orange'), class: "marker orange-marker" do %>
+    <%= link_to new_maybedo_task_path(color: 'orange', board: params[:board]), class: "marker orange-marker" do %>
       <div class="marker-body"></div>
       <div class="marker-cap orange-cap"></div>
     <% end %>
-    <%= link_to new_maybedo_task_path(color: 'black'), class: "marker black-marker" do %>
+    <%= link_to new_maybedo_task_path(color: 'black', board: params[:board]), class: "marker black-marker" do %>
       <div class="marker-body"></div>
       <div class="marker-cap black-cap"></div>
     <% end %>

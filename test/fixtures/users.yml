@@ -1,0 +1,9 @@
+one:
+  email: test1@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  timezone: 'America/Chicago'
+
+two:
+  email: test2@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  timezone: 'America/New_York'

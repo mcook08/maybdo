@@ -1,39 +1,34 @@
 class MaybedoTasksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @maybedos = MaybedoTask.active
+    board = params[:board] || 'daily' # Default to 'daily' if no board is selected
+    @maybedos = current_user.maybedo_tasks.active.where(board: board)
   end
 
   def new
-    @maybedo = MaybedoTask.new(color: params[:color])
+    @maybedo = current_user.maybedo_tasks.build(color: params[:color], board: params[:board])
   end
 
   def create
-    @maybedo = MaybedoTask.new(maybedo_params)
-    set_expiration(@maybedo)
+    @maybedo = current_user.maybedo_tasks.new(maybedo_params)
+    @maybedo.set_expiration
 
     if @maybedo.save
-      redirect_to maybedo_tasks_path, notice: 'Maybedo was successfully created.'
+      redirect_to maybedo_tasks_path(board: @maybedo.board), notice: 'Maybedo was successfully created.'
     else
       render :new
     end
   end
 
+  def current_stats
+    @tasks_by_board = MaybedoTask.group(:board).count
+  end
+
   private
 
   def maybedo_params
-    params.require(:maybedo_task).permit(:title, :description, :expires_in, :color)
+    params.require(:maybedo_task).permit(:title, :description, :expires_in, :color, :board)
   end
 
-  def set_expiration(maybedo)
-    case maybedo.expires_in
-    when '1_day'
-      maybedo.expires_at = 1.day.from_now
-    when '7_days'
-      maybedo.expires_at = 7.days.from_now
-    when '30_days'
-      maybedo.expires_at = 30.days.from_now
-    when 'surprise_me'
-      maybedo.expires_at = rand(1..30).days.from_now
-    end
-  end
 end

@@ -1,0 +1,20 @@
+task_one:
+  title: "Sample Daily Task"
+  description: "This is a sample daily task"
+  board: "daily"
+  expires_at: <%= Time.zone.now.end_of_day %>
+  user: one # This associates this task with the user 'one' from users.yml
+
+task_two:
+  title: "Sample Weekly Task"
+  description: "This is a sample weekly task"
+  board: "weekly"
+  expires_at: <%= (Time.zone.now + 7.days).end_of_day %>
+  user: one # This also associates with the user 'one'
+
+task_three:
+  title: "Sample Monthly Task"
+  description: "This is a sample monthly task"
+  board: "monthly"
+  expires_at: <%= Time.zone.now.end_of_month.end_of_day %>
+  user: two # This associates this task with the user 'two'

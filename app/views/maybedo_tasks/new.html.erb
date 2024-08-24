@@ -9,25 +9,21 @@
       <%= form.text_field :title, class: "form-control", style: "color: #{params[:color]}" %>
     </div>
 
+    <!-- New board selection section -->
     <div class="form-group">
-      <%= form.label :description, "MaybDo Description" %>
-      <%= form.text_area :description, class: "form-control", style: "color: #{params[:color]}" %>
-    </div>
-
-    <div class="form-group">
-      <p>Duration:</p>
+      <p>Select Board:</p>
       <div class="radio-group">
-        <%= form.radio_button :expires_in, '1_day', class: "form-radio" %>
-        <%= form.label :expires_in_1_day, '1 day' %><br>
+        <%= form.radio_button :board, 'daily', class: "form-radio" %>
+        <%= form.label :board_daily, 'Daily' %><br>
 
-        <%= form.radio_button :expires_in, '7_days', class: "form-radio" %>
-        <%= form.label :expires_in_7_days, '7 days' %><br>
+        <%= form.radio_button :board, 'weekly', class: "form-radio" %>
+        <%= form.label :board_weekly, 'Weekly' %><br>
 
-        <%= form.radio_button :expires_in, '30_days', class: "form-radio" %>
-        <%= form.label :expires_in_30_days, '30 days' %><br>
+        <%= form.radio_button :board, 'monthly', class: "form-radio" %>
+        <%= form.label :board_monthly, 'Monthly' %><br>
 
-        <%= form.radio_button :expires_in, 'surprise_me', class: "form-radio" %>
-        <%= form.label :expires_in_surprise_me, 'Surprise Me' %>
+        <%= form.radio_button :board, 'surprise', class: "form-radio" %>
+        <%= form.label :board_surprise, '🎉 Surprise me' %>
       </div>
     </div>
 

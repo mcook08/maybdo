@@ -1,0 +1,8 @@
+<h1>Current Stats</h1>
+<p>Total number of tasks by board type:</p>
+
+<ul>
+  <% @tasks_by_board.each do |board, count| %>
+    <li><strong><%= board.capitalize %>:</strong> <%= count %> tasks</li>
+  <% end %>
+</ul>
