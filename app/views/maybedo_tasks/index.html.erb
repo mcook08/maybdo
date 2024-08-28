@@ -2,12 +2,15 @@
   <%= link_to "Daily (#{@tasks_by_board['daily'] || 0})", maybedo_tasks_path(board: 'daily'), class: "tab #{'active' if params[:board] == 'daily' || params[:board].nil?}" %>
   <%= link_to "Weekly (#{@tasks_by_board['weekly'] || 0})", maybedo_tasks_path(board: 'weekly'), class: "tab #{'active' if params[:board] == 'weekly'}" %>
   <%= link_to "Monthly (#{@tasks_by_board['monthly'] || 0})", maybedo_tasks_path(board: 'monthly'), class: "tab #{'active' if params[:board] == 'monthly'}" %>
-  <%= link_to "🎉 (#{@tasks_by_board['surprise'] || 0})", maybedo_tasks_path(board: 'surprise'), class: "tab #{'active' if params[:board] == 'surprise'}" %>
+  <% link_to "🎉 (#{@tasks_by_board['surprise'] || 0})", maybedo_tasks_path(board: 'surprise'), class: "tab #{'active' if params[:board] == 'surprise'}" %>
 </div>
 
 
 <div class="whiteboard">
   <h1>MaybDos</h1>
+  <div class="add-daily-challenge">
+    <%= button_to 'DC', add_daily_challenge_maybedo_tasks_path, class: 'btn btn-primary', method: :post %>
+  </div>
 
   <div class="maybedo-list">
     <% @maybedos.each do |maybedo| %>

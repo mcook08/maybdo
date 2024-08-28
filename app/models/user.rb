@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -6,5 +8,5 @@ class User < ApplicationRecord
 
   has_many :maybedo_tasks, dependent: :destroy
 
-  validates :timezone, inclusion: { in: ActiveSupport::TimeZone.all.map{ |tz| tz.tzinfo.name } }, allow_nil: true
+  validates :timezone, inclusion: { in: ActiveSupport::TimeZone.all.map { |tz| tz.tzinfo.name } }, allow_nil: true
 end

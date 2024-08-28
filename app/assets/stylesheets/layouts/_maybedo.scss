@@ -125,3 +125,26 @@ body {
     background-color: #007bff;
     color: #fff;
 }
+
+
+/* Add Daily Challenge Button */
+.add-daily-challenge {
+    position: relative;
+    top: -90px;
+}
+
+/* Additional styles for the button */
+.add-daily-challenge .btn {
+    background-color: #ff5722;
+    /* Custom color for the daily challenge button */
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.add-daily-challenge .btn:hover {
+    background-color: #e64a19;
+}

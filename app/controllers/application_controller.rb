@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :set_time_zone, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MaybedoTask < ApplicationRecord
   belongs_to :user
   validates :board, inclusion: { in: %w[daily weekly monthly surprise] }, allow_nil: false

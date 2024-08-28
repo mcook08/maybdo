@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RenameCompletedToErasedInMaybedoTasks < ActiveRecord::Migration[7.1]
   def change
     # Rename the column from completed to erased
