@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_time_zone, if: :user_signed_in?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  layout :layout_by_resource
 
   protected
 
@@ -15,5 +16,13 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone
     Time.zone = current_user.timezone || 'UTC'
+  end
+
+  def layout_by_resource
+    if devise_controller?
+      "devise"
+    else
+      "application"
+    end
   end
 end

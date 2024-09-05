@@ -32,7 +32,7 @@
 <%= render "devise/shared/links" %>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("turbo:load", function() {
     var userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
     var timezoneField = document.getElementById("user_timezone");
     if (timezoneField) {

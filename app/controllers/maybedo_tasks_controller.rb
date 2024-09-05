@@ -7,9 +7,19 @@ class MaybedoTasksController < ApplicationController
     board = params[:board] || 'daily' # Default to 'daily' if no board is selected
     @maybedos = current_user.maybedo_tasks.active.where(board:)
     @tasks_by_board = MaybedoTask.active.group(:board).count
+    case board
+    when 'daily'
+      word = 'today'
+    when 'weekly'
+      word = 'this week'
+    when 'monthly'
+      word = 'this month'
+    end
+    @empty_phrase = "What might you do #{word}?"
   end
 
   def new
+    params[:board] ||= 'daily'
     @maybedo = current_user.maybedo_tasks.build(color: params[:color], board: params[:board])
   end
 
@@ -32,21 +42,20 @@ class MaybedoTasksController < ApplicationController
     @daily_challenge = DailyChallenge.assign_for_today
 
     if @daily_challenge
-      # Check if the user already has the current daily challenge
       existing_challenge = current_user.maybedo_tasks.find_by(
         title: @daily_challenge.name,
-        board: 'daily'
+        board: 'daily',
       )
 
       if existing_challenge
         redirect_to maybedo_tasks_path(board: 'daily'), alert: 'You already have the current daily challenge!'
       else
-        # Create a new task only if the user does not have the current daily challenge
         current_user.maybedo_tasks.create(
           title: @daily_challenge.name,
           description: 'Daily Challenge',
           board: 'daily',
-          color: 'orange'
+          color: 'orange',
+          expires_at: Time.zone.now.end_of_day
         )
         redirect_to maybedo_tasks_path(board: 'daily'), notice: 'Daily Challenge added!'
       end
