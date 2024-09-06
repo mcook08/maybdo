@@ -6,7 +6,7 @@ class MaybedoTasksController < ApplicationController
   def index
     board = params[:board] || 'daily' # Default to 'daily' if no board is selected
     @maybedos = current_user.maybedo_tasks.active.where(board:)
-    @tasks_by_board = MaybedoTask.active.group(:board).count
+    @tasks_by_board = current_user.maybedo_tasks.active.group(:board).count
     case board
     when 'daily'
       word = 'today'
