@@ -6,12 +6,14 @@
 
 
 <div class="whiteboard">
-  <h1>MaybDo</h1>
-  <% if @board == 'daily' %>
-    <div class="add-daily-challenge">
-      <%= button_to 'DC', add_daily_challenge_maybedo_tasks_path, class: 'btn btn-primary', method: :post %>
-    </div>
-  <% end %>
+  <div class="header">
+    <h1>MaybDo <%= @date_display_string %> </h1>
+    <% if @board == 'daily' %>
+      <div class="add-daily-challenge">
+        <%= button_to 'DC', add_daily_challenge_maybedo_tasks_path, class: 'btn btn-primary', method: :post %>
+      </div>
+    <% end %>
+  </div>
 
   <div class="maybedo-list">
     <% if @maybedos.empty? %>

@@ -10,10 +10,13 @@ class MaybedoTasksController < ApplicationController
     case @board
     when 'daily'
       word = 'today'
+      @date_display_string = Time.zone.now.strftime('%-m/%-d')
     when 'weekly'
       word = 'this week'
+      @date_display_string = "#{Time.zone.now.beginning_of_week.strftime('%-m/%-d')} - #{Time.zone.now.end_of_week.strftime('%-m/%-d')}"
     when 'monthly'
       word = 'this month'
+      @date_display_string = Time.zone.now.strftime('%B')
     end
     @empty_phrase = "What might you do #{word}?"
   end
