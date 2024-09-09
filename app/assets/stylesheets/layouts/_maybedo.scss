@@ -69,21 +69,6 @@ body {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Buttons styled as sticky notes */
-.whiteboard .btn {
-    background-color: #fffd82;
-    border: 1px solid #e0d04a;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1.1em;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.whiteboard .btn:hover {
-    background-color: #f9f88e;
-}
-
 @include media(mobile) {
 
     /* Whiteboard takes almost full width on mobile */

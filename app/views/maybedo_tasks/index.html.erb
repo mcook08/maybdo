@@ -50,5 +50,9 @@
       <div class="marker-body"></div>
       <div class="marker-cap black-cap"></div>
     <% end %>
+    <%= link_to new_maybedo_task_path(color: 'blue', board: params[:board]), class: "marker blue-marker" do %>
+      <div class="marker-body"></div>
+      <div class="marker-cap blue-cap"></div>
+    <% end %>
   </div>
 </div>

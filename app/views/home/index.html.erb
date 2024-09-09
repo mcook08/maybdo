@@ -1,0 +1,48 @@
+<div class="whiteboard welcome-container">
+  <h1>Welcome to MaybDo</h1>
+  <p style="color: green">Organize your tasks in a fun and engaging way with our daily challenges. It all starts with the powerful question:</p>
+  <p>What might you do today?</p>
+
+  <div class="cta-buttons">
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
+    <%= link_to 'Log In', new_user_session_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <div class="features">
+    <h2>How it works:</h2>
+    <ul>
+      <li style="color: red">Create tasks with time-limited boards (daily, weekly, monthly)</li>
+      <li style="color: blue">Wake up every day to a fresh daily board</li>
+      <li style="color: orange">Complete fun daily challenges</li>
+      <li style="color: purple">Stay organized and motivated</li>
+    </ul>
+  </div>
+</div>
+<div class="tray">
+  <div class="marker-container">
+      <div class="marker red-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap red-cap"></div>
+      </div>
+      <div class="marker green-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap green-cap"></div>
+      </div>
+      <div class="marker purple-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap purple-cap"></div>
+      </div>
+      <div class="marker orange-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap orange-cap"></div>
+      </div>
+      <div class="marker black-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap black-cap"></div>
+      </div>
+      <div class="marker blue-marker">
+        <div class="marker-body"></div>
+        <div class="marker-cap blue-cap"></div>
+      </div>
+  </div>
+</div>
