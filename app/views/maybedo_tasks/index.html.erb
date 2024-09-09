@@ -7,7 +7,7 @@
 
 <div class="whiteboard">
   <h1>MaybDo</h1>
-  <% if params[:board] == 'daily' %>
+  <% if @board == 'daily' %>
     <div class="add-daily-challenge">
       <%= button_to 'DC', add_daily_challenge_maybedo_tasks_path, class: 'btn btn-primary', method: :post %>
     </div>
